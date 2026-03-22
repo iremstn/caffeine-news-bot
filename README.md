@@ -1,6 +1,6 @@
 # ☀️ Caffeine News Bot
 
-Ein N8N Telegram Bot der täglich Nachrichten aus verschiedenen Ländern zusammenfasst. Da viele bilingual sind, bietet dieser Bot die Möglichkeit, Nachrichten aus zwei verschiedenen Ländern zu erhalten, um auch Nachrichten aus dem Herkunftsland zu erhalten!
+Ein N8N Telegram Bot der täglich Nachrichten aus verschiedenen Ländern zusammenfasst. Da viele bilingual sind, bietet dieser Bot die Möglichkeit, Nachrichten aus zwei verschiedenen Ländern wählen, um auch Nachrichten aus dem Herkunftsland zu erhalten!
 
 ## Features
 - Onboarding via Telegram Inline Buttons
