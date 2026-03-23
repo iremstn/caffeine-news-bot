@@ -21,6 +21,12 @@ Ein N8N Telegram Bot der täglich Nachrichten aus verschiedenen Ländern zusamme
 4. Workflow JSON importieren
 5. Credentials eintragen
 
+## Workflow
+![Workflow Screenshot](./Workflow)
+
+## Telegram-Bot
+![Workflow Screenshot](./Telegram)
+
 
 
 
