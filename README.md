@@ -1,34 +1,33 @@
-# ☀️ Caffeine News Bot
-
-Ein N8N Telegram Bot der täglich um 08:00 Nachrichten zusammenfasst. Da heutzutage sehr viele Menschen bilingual aufgewachsen sind, bietet dieser Bot die Möglichkeit, Nachrichten aus zwei verschiedenen Ländern zu erhalten! 
+## ☀️ Caffeine News Bot
+An N8N Telegram bot that summarizes news daily at 08:00. Since many people today grow up bilingual, this bot offers the ability to receive news from two different countries!
 
 https://t.me/CaffeineN8NBot
 
 ## Features
-- Onboarding via Telegram Inline Buttons
-- Länderauswahl: 🇩🇪 Deutschland, 🇹🇷 Türkei, 🇫🇷 Frankreich, 🇰🇷 Südkorea
-- KI-Zusammenfassung via OpenRouter LLM
-- Zweisprachige News (Deutsch + Zweitsprache)
-- Täglich um 08:00 Uhr
+- Onboarding via Telegram inline buttons
+- Country selection: 🇩🇪 Germany, 🇹🇷 Turkey, 🇫🇷 France, 🇰🇷 South Korea
+- AI-powered summaries via OpenRouter LLM
+- Bilingual news (German + second language)
+- Daily delivery at 08:00
 
 ## Tech Stack
-- N8N (Self-hosted)
+- N8N (self-hosted)
 - Telegram Bot API
-- RSS Feeds (Tagesschau, Hurriyet, Le Monde, YNA)
+- RSS feeds (Tagesschau, Hürriyet, Le Monde, YNA)
 - OpenRouter API
 - Google Sheets API
 
 ## Setup
-1. N8N installieren
-2. Telegram Bot via @BotFather erstellen
-3. OpenRouter API und Google Sheets API Key holen
-4. Workflow JSON importieren
-5. Credentials eintragen
+- Install N8N
+- Create a Telegram bot via @BotFather
+- Get OpenRouter API and Google Sheets API keys
+- Import the workflow JSON
+- Add your credentials
 
-## Workflow 1: Speicherung der Daten
+## Workflow 1: Data-Saving
 ![Workflow Screenshot](./Workflow1)
 
-## Workflow 2: Schedule + Nachricht versenden
+## Workflow 2: Schedule + Send Message
 
 ![Workflow Screenshot](./Workflow2)
 
