@@ -1,0 +1,568 @@
+{
+  "name": "Caffeine Bot Data-Saving",
+  "nodes": [
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.message.text }}",
+                    "rightValue": "/start",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "46bef9cc-8e4f-46a2-a323-e8f711313468"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "db9a8810-736b-41dd-9eb2-6682d01c9825",
+                    "leftValue": "={{ $json.message?.text ?? $json.callback_query?.data }}",
+                    "rightValue": "yes",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "150dcabb-9d94-46a0-bc2a-ac4b6c6fad5c",
+                    "leftValue": "={{ $json.message?.text ?? $json.callback_query?.data }}",
+                    "rightValue": "no",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "e35cf983-428a-4394-8dcf-710a05b3e1f1",
+                    "leftValue": "={{ $('Telegram Trigger').first().json.callback_query?.data }}",
+                    "rightValue": "turkey",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "475a3c01-605a-4125-b465-d612ffc79c29",
+                    "leftValue": "={{ $('Telegram Trigger').first().json.callback_query?.data }}",
+                    "rightValue": "france",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "dee96ba3-7041-470f-9048-1d2d220ac8d1",
+                    "leftValue": "={{ $('Telegram Trigger').first().json.callback_query?.data }}",
+                    "rightValue": "korea",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "f2d3b274-a604-4de4-a41a-b5f899c84674",
+                    "leftValue": "={{ $('Telegram Trigger').first().json.callback_query?.data }}",
+                    "rightValue": "germany",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -160,
+        -176
+      ],
+      "id": "fec7ca6c-707e-4654-aa9a-54a468507ec0",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "chatId": "=6917025945",
+        "text": "Alles klar :) Hier sind deine Nachrichten, die du ab jetzt jeden Morgen pünktlich um 08:00 Uhr bekommst!",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        64
+      ],
+      "id": "f63e7ee3-7ab2-47d8-9662-013b36129a8f",
+      "name": "Send a text message",
+      "webhookId": "bc1623cf-fb4f-4e94-877e-72c0964d6949",
+      "credentials": {
+        "telegramApi": {
+          "id": "LFjAYlOrM5q2KtwT",
+          "name": "Telegram account REAL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message?.chat?.id ?? $json.callback_query?.from?.id }}",
+        "text": "Möchtest du News von 2 Ländern erhalten?",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "Ja",
+                    "additionalFields": {
+                      "callback_data": "yes"
+                    }
+                  },
+                  {
+                    "text": "Nein",
+                    "additionalFields": {
+                      "callback_data": "no"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        144,
+        -288
+      ],
+      "id": "06363f53-c9ab-444d-90b3-76c53fa38ed0",
+      "name": "Send a text message1",
+      "webhookId": "1e69a6d6-0d2a-406a-b058-0073ea5c3c49",
+      "credentials": {
+        "telegramApi": {
+          "id": "LFjAYlOrM5q2KtwT",
+          "name": "Telegram account REAL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message?.chat?.id ?? $json.callback_query?.from?.id }}",
+        "text": "Von welchen Ländern möchtest du News erhalten?",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "🇹🇷 Türkei",
+                    "additionalFields": {
+                      "callback_data": "turkey"
+                    }
+                  },
+                  {
+                    "text": "🇫🇷 Frankreich",
+                    "additionalFields": {
+                      "callback_data": "france"
+                    }
+                  },
+                  {
+                    "text": "🇰🇷 Südkorea",
+                    "additionalFields": {
+                      "callback_data": "korea"
+                    }
+                  },
+                  {
+                    "text": "🇩🇪 Nur Deutschland",
+                    "additionalFields": {
+                      "callback_data": "germany"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        144,
+        -112
+      ],
+      "id": "89c39618-60b8-4e10-81c2-8b360de7dc3c",
+      "name": "Send a text message2",
+      "webhookId": "a0b93967-3938-4098-a4e8-187915c57c2b",
+      "credentials": {
+        "telegramApi": {
+          "id": "LFjAYlOrM5q2KtwT",
+          "name": "Telegram account REAL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message",
+          "callback_query"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -320,
+        -96
+      ],
+      "id": "b272becd-daad-4d61-9286-266443f95623",
+      "name": "Telegram Trigger",
+      "webhookId": "4870c5a4-0a78-47e3-86e7-da08a0d01d01",
+      "credentials": {
+        "telegramApi": {
+          "id": "LFjAYlOrM5q2KtwT",
+          "name": "Telegram account REAL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/19Nk90nHSh2IcGwIedLCnKnysj-UO5F88TN5dQHCTFx8/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Tabellenblatt1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19Nk90nHSh2IcGwIedLCnKnysj-UO5F88TN5dQHCTFx8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "user_id": "={{ $('Telegram Trigger').first().json.callback_query.from.id }}",
+            "länder": "={{ \n   $('Telegram Trigger').first().json.callback_query.data === 'no' ? 'de' :\n  $('Telegram Trigger').first().json.callback_query.data === 'turkey' ? 'de,tr' :\n  $('Telegram Trigger').first().json.callback_query.data === 'france' ? 'de,fr' :\n  $('Telegram Trigger').first().json.callback_query.data === 'korea' ? 'de,kr' : 'de'\n}}"
+          },
+          "matchingColumns": [
+            "user_id"
+          ],
+          "schema": [
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "länder",
+              "displayName": "länder",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        64
+      ],
+      "id": "c30bb3ff-b6dc-48bb-b8e7-cafc8e03a38b",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "sfiSf8BZ2alPB1SW",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Telegram Trigger": [
+      {
+        "json": {
+          "update_id": 424275311,
+          "callback_query": {
+            "id": "2038284110209312678",
+            "from": {
+              "id": 6917025945,
+              "is_bot": false,
+              "first_name": ".",
+              "language_code": "de"
+            },
+            "message": {
+              "message_id": 391,
+              "from": {
+                "id": 8651564081,
+                "is_bot": true,
+                "first_name": "Caffeine In The Morning 2 ☀️☕️",
+                "username": "CaffeineN8NBot"
+              },
+              "chat": {
+                "id": 6917025945,
+                "first_name": ".",
+                "type": "private"
+              },
+              "date": 1774036703,
+              "text": "Von welchen Ländern möchtest du News bekommen?\n\nThis message was sent automatically with n8n",
+              "entities": [
+                {
+                  "offset": 48,
+                  "length": 41,
+                  "type": "italic"
+                },
+                {
+                  "offset": 89,
+                  "length": 3,
+                  "type": "text_link",
+                  "url": "https://n8n.io/?utm_source=n8n-internal&utm_medium=powered_by&utm_campaign=n8n-nodes-base.telegram_ae5bfaccd136308ef255fbd1f6c02bce7677fb99c2c68ed6106aab7837858c2a"
+                }
+              ],
+              "link_preview_options": {
+                "is_disabled": true
+              },
+              "reply_markup": {
+                "inline_keyboard": [
+                  [
+                    {
+                      "text": "🇹🇷 Türkei",
+                      "callback_data": "turkey"
+                    },
+                    {
+                      "text": "🇫🇷 Frankreich",
+                      "callback_data": "france"
+                    },
+                    {
+                      "text": "🇰🇷 Südorea",
+                      "callback_data": "korea"
+                    },
+                    {
+                      "text": "🇩🇪 Nur Deutschland",
+                      "callback_data": "germany"
+                    }
+                  ]
+                ]
+              }
+            },
+            "chat_instance": "-5554309530086675761",
+            "data": "turkey"
+          }
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message2": {
+      "main": [
+        []
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        []
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "d306a54b-2b20-4520-a561-1eae89aa23bc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ae5bfaccd136308ef255fbd1f6c02bce7677fb99c2c68ed6106aab7837858c2a"
+  },
+  "id": "lfJUZNlOXKBsoyFU",
+  "tags": []
+}
